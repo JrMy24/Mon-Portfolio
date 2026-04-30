@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Dakrea - Support Technique</title>
+</head>
+<body>
+    <h1>Bienvenue sur Dakrea</h1>
+    <p>Utilisez le chatbot en bas à droite pour poser vos questions sur nos documents.</p>
+
+    <div id="dakrea-btn" style="position:fixed; bottom:20px; right:20px; cursor:pointer; z-index:9999;">
+        <div id="btn-style" style="width:65px; height:65px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 15px rgba(0,0,0,0.3); overflow:hidden;">
+            <div id="btn-icon">💬</div>
+        </div>
+    </div>
+
+    <iframe id="dakrea-win" src="widget.php" style="display:none; position:fixed; bottom:100px; right:20px; width:350px; height:500px; border:none; border-radius:15px; box-shadow:0 10px 40px rgba(0,0,0,0.2); z-index:9999;"></iframe>
+
+    <script>
+        // Synchronisation du design avec config.json
+        fetch('config.json').then(r => r.json()).then(config => {
+            const style = document.getElementById('btn-style');
+            style.style.background = config.bot_color || '#007bff';
+            document.getElementById('btn-icon').style.color = "white";
+            document.getElementById('btn-icon').style.fontSize = "30px";
+        });
+
+        document.getElementById('dakrea-btn').onclick = () => {
+            const f = document.getElementById('dakrea-win');
+            f.style.display = (f.style.display === 'none') ? 'block' : 'none';
+        };
+    </script>
+</body>
+</html>
