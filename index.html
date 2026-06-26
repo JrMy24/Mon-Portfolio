@@ -119,46 +119,6 @@
         <p>&copy; 2025 - Jeremy Krumenacker - Étudiant au Cnam</p>
        
     </footer>
-- ============================================================
-  INTÉGRATION CHATBOT — à coller dans ton portfolio (jrmy24.github.io)
-  Colle ce bloc juste avant la fermeture de </body> sur ta page.
-============================================================ -->
- 
-<div id="dakrea-btn" style="position:fixed; bottom:20px; right:20px; cursor:pointer; z-index:9999;">
-    <div id="btn-style" style="width:65px; height:65px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 15px rgba(0,0,0,0.3); overflow:hidden; transition: transform 0.2s ease;">
-        <div id="btn-icon">💬</div>
-    </div>
-</div>
- 
-<iframe id="dakrea-win" src="https://chatbotbackend.freedev.app/widget.php" style="display:none; position:fixed; bottom:100px; right:20px; width:350px; height:500px; border:none; border-radius:15px; box-shadow:0 10px 40px rgba(0,0,0,0.2); z-index:9999;"></iframe>
- 
-<script>
-    // Synchronisation de la couleur du bouton avec config.json (réglages publics, sans risque)
-    fetch('https://chatbotbackend.freedev.app/config.php')
-        .then(r => r.json())
-        .then(config => {
-            const style = document.getElementById('btn-style');
-            style.style.background = config.bot_color || '#007bff';
-            document.getElementById('btn-icon').style.color = "white";
-            document.getElementById('btn-icon').style.fontSize = "30px";
-        })
-        .catch(() => {
-            // Si le fetch échoue (ex: serveur indisponible), couleur de secours
-            document.getElementById('btn-style').style.background = '#8b5cf6';
-        });
- 
-    document.getElementById('dakrea-btn').onclick = () => {
-        const f = document.getElementById('dakrea-win');
-        f.style.display = (f.style.display === 'none') ? 'block' : 'none';
-    };
- 
-    // Petit effet visuel au survol du bouton
-    document.getElementById('dakrea-btn').addEventListener('mouseenter', () => {
-        document.getElementById('btn-style').style.transform = 'scale(1.08)';
-    });
-    document.getElementById('dakrea-btn').addEventListener('mouseleave', () => {
-        document.getElementById('btn-style').style.transform = 'scale(1)';
-    });
-</script>
+
 </body>
 </html>
